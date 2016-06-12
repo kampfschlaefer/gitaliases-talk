@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8"/>
     <style type="text/css">
       /* Slideshow styles */
+      @import url(fonts.css);
+      body {
+        font-family: "Raleway", sans-serif;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        color: #0068ee;
+      }
+
+      li, p, pre, code {
+        color: #303030;
+        font-size: 20pt;
+        line-height: 150%;
+        margin-bottom: 20px;
+      }
+
+      blockquote p {
+        font-weight: 700;
+        font-size: 25pt;
+        color: #0068dd;
+      }
+      blockquote .right {
+        font-weight: normal;
+        font-size: 16pt;
+        color: gray;
+      }
     </style>
   </head>
   <body>
@@ -15,19 +46,56 @@
       ---
       class: center, middle
 
-      # git is excellent to build your own version control
+      > git is excellent to build your own version control
+      .right[Source: Internet]
 
       ---
-      ## Remembering all the options
+      ## Remembering all the options?
+      --
+
+      * What are the command and options to show the history leading to the current state including branches and merges?
+      --
+
+      * What is the option to make everything output in colors?
 
       ---
       ## Setting default options
 
+      Some things can be set by default:
+
+      * Set my info:<br>
+        `git config --global user.name "John Doe"`<br>
+        `git config --global user.email "john.doe@example.com"`
+      --
+
+      * Output in colors:<br>
+        `git config --global color.ui auto`
+      --
+
+      * Decorate the log with branches and tags<br>
+        `git config log.decorate short`
+
       ---
-      ## aliases as option-sets
+      ## aliases
+      aliases to the rescue
+      --
+
+      * Defining simple aliases:<br>
+        `git config --global alias.ci commit`<br>
+        Use `git ci` to commit
+      --
+
+      * Define aliases with options:<br>
+        `git config alias.graph 'log --graph --oneline'`<br>
+        Use `git log` as before, use `git graph` to see the tree of commits
+      --
+
+      * aliases with outside commands:<br>
+        `git config alias.cow '!echo "Muuuhhh!"'`
 
       ---
       ## aliases extended
+      more aliases to make your life easier
 
       ---
       class: center, middle
@@ -37,7 +105,9 @@
     <script src="remark-latest.min.js">
     </script>
     <script>
-      var slideshow = remark.create();
+      var slideshow = remark.create({
+        countIncrementalSlides: false
+      });
     </script>
   </body>
 </html>
